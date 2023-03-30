@@ -1,0 +1,55 @@
+/*          __
+    Search    |
+    Insert    |--- O(1)     [on avg]
+    Delete  __|
+
+    Not Useful for ->   1) Finding closest value    [AVL or Red Black Trees (self balancing trees)]
+                        2) Sorted Data              [AVL or Red Black Trees (self balancing trees)]
+                        3) Prefix Searching         [Trie]
+*/
+
+/*
+    => Direct Access Table
+        Maps records (array elements) to their corresponding keys (indices) using arrays. For example mapping attendance to students' roll number (for 30 students in class, arr[i]=1 if roll no. i is present and arr[0]=0 otherwise).
+
+    => Limitations of Direct Access Table
+        1) Sparse arrays -> Wastage of Space
+        2) Non-whole number and string values can't be stored as keys
+*/
+
+/*
+    => Hash Function
+        A Hash Function is a function that converts a given numeric or alphanumeric key (for example, a 10-digit phone number) to a small practical integer value.
+    
+    => Characteristics of a good Hashing Function
+        -> Should map a large key to a small key.
+        -> Should generate values from 0 to m-1, where m is the size of the hash table.
+        -> Should be fast, O(1) for integers and O(len) for strings of length 'len' since 'len' characters would need to be processed.
+        -> Should uniformly distribute large keys into the hash table slots.
+    
+    => Common Hash Functions
+        -> For Integers
+            h(large_key) = large_key % m
+                # m is the size of the hash table
+                # m should be a prime number close to the number of keys (bcoz of less common factors and thus, more uniform distribution of the keys)
+                # ?m should not be a prime number close to 2 or 10's power
+                    [Bcoz 2ˣ & 10ˣ would mean we are only using the last 'x' digits of the large_key (in binary & decimal representation respectively) to calculate the hash value.?
+
+        -> For Strings
+            h(str) = (str[0]*x⁰ + str[1]*x¹ + str[2]*x² + ... + str[len-1]*xˡᵉⁿ⁻¹) % m
+            [i.e., weighted sum (we can't just add the ascii values of the characters (str[i]) since unweighted sum would map any permutation of the same characters to the same key) where x is any random number]
+        
+        -> Universal Hashing
+*/
+
+/*
+    => COLLISION HANDLING
+        -> Since a hash function gets us a small number for a big key, there is a possibility that two keys result in the same value. The situation where a newly inserted key maps to an already occupied slot in the hash table is called collision.
+        -> Collision Handling Techniques :-
+            1) Chaining          
+                                |- Linear Probing
+                                |
+            2) Open Addressing -|- Quadratic Probing
+                                |
+                                |- Double Hashing
+*/

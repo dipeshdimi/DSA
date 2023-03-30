@@ -1,0 +1,36 @@
+=> DEFINITION
+    Data Structure with a finite set of vertices V (nodes) and a finite set of ordered pairs of the form (vₓ,vᵧ) called edges E.
+        G = (V,E)
+        V = {v₁, v₂, v₃, ..., vₙ}
+        E = {(v₁,v₂), (v₂,vₙ), (v₁,vₙ), (v₃,v1), ...}
+
+
+=> DIRECTED GRAPHS
+    -> Edges are directed in a single direction.
+    -> Indegree(v) = No. of incoming edges to v
+       Outdegree(v) = No. of outgoing edges from v
+    -> Sum(indegrees) = |E|
+       Sum(outdegrees) = |E|
+            [Bcoz each edge connects two vertices & indegree for an edge is also an outdegree for another edge]
+    -> Max no. of edges = |V|*|V-1|
+        [Each vertex will be connected to every other vertex in the case of max no. of edges]
+
+
+=> UNDIRECTED GRAPHS
+    -> Edges are directionless or in other words bi-directional.
+    -> Sum(degrees) = 2*|E|
+            [Bcoz each edge connects two vertices]
+    -> Max no. of edges = |V|*|V-1|/2
+        [Half as there can only be one edge connecting vertices unlike in case of directed graphs where it's possible to have two vertices connecting the same pair of nodes]
+
+
+=> TERMINOLOGIES
+    -> Walk*: A sequence of vertices we get following edges on a graph.
+    -> Path*: A walk in which all the vertices are distinct.
+    -> Trail: A walk in which all the edges are distinct.
+    -> Cyclic (& Acyclic) Graphs: There exists a walk that starts and ends with the same vertex.
+    -> Weighted (& Unweighted) Graphs: Weights are assigned to the edges (e.g., in travelling salesman problem).
+    -> Sparse Graphs: Low Connectivity (far away from V(V-1) for directed or V(V-1)/2 for undirected)
+       Dense Graphs: High Connectivity (closer to V(V-1) for directed or V(V-1)/2 for undirected)
+
+    * Some books refer to a walk as a path and path as simple path

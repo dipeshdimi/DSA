@@ -1,0 +1,52 @@
+=> AP : a, a+d, a+2d, ..., a+(n-1)d
+        aₙ = a+(n-1)d
+        Sₙ = (n/2)[2a+(n-1)d] = (n/2)[a+aₙ]
+
+=> GP : a, ar, ar², ..., arⁿ⁻¹
+        aₙ = arⁿ⁻¹
+        Sₙ = a(rⁿ-1)/(r-1) OR a(1-rⁿ)/(1-r)
+
+
+=> QUADRATIC EQUATIONS
+    Q(x) = ax²+bx+c
+    x = (-b ± √D)/2a
+               __
+                |       D > 0 : Distinct Real Roots
+    D = b²-4ac  |----   D = 0 : Equal Real Roots
+               _|       D < 0 : Imaginary Roots
+
+
+=> MEAN: x̄ = (x₁ + x₂ + x₃ + ... + xₙ)/n
+
+=> MEDIAN:  -> If the count of numbers is odd: After sorting the sequence,
+                Median = {(N+1)/2}th value;
+                (N = number of terms)
+            -> If the count of numbers is even: After sorting the sequence,
+                Median  =  Average of (N/2)th and {(N/2) + 1}th value;
+                (N = number of terms)
+
+
+=> PRIME NUMBERS :  -> Exactly two factors
+                    -> Every prime no. can be represented as 6n-1 or 6n+1 except 2 and 3, where n is a natural no.
+                    -> 2 and 3 are the only consecutive prime no.
+
+
+=> LCM :  -> Exactly two factors
+                    -> Every prime no. can be represented as 6n-1 or 6n+1 except 2 and 3, where n is a natural no.
+                    -> 2 and 3 are the only consecutive prime no.
+
+
+=> LCM & HCF :  ->  LCM (a1, a2, ..., an) = Lowest no. divisible by each one of a1, a2, ..., an
+                    Ex: LCM(12,6,15) = 60
+                ->  HCF (a1, a2, ..., an) = Largest no. that divides each of a1, a2, ..., an
+                    Ex: HCF(12,6,15) = 3
+
+
+=> FACTORIAL : n! = n*(n-1)*(n-2)* ... *3*2*1
+
+
+=> PERMUTATION & COMBINATION :  ⁿPᵣ = n!/(n-r)!         [Arranging r out of n elements]
+                                ⁿCᵣ = n!/(r!*(n-r)!)    [Selecting r out n elements]
+
+
+=> MODULAR ARITHMETHIC : a%b = remainder(a/b)

@@ -1,0 +1,17 @@
+
+=> APPLICATIONS OF STACK
+
+    1) Function Call are implemented using stacks
+
+    2) Checking for Balanced Parethesis
+
+    3) Reversing Items (push items into the stack and pop them out, they will be reversed as stacks follow FILO/LIFO order)
+
+    4) Infix to Prefix/Postfix conversion
+
+    5) Evaluation of Prefix/Postfix expressions
+
+    *******6) STOCK SPAN PROBLEM and its variations [MOST IMPORTANT STACK QUESTION IN INTERVIEWS]
+
+    ***7) For implementing UNDO/REDO OR FORWARD/BACKWARD operations (as stacks follow FILO/LIFO order)  [ORAL STACK INTERVIEW QUESTION]
+        Ex: How will you implement undo/redo operation in MS Word or any other editor?

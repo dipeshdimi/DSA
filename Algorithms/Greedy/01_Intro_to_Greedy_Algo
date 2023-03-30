@@ -1,0 +1,51 @@
+=> Optimization Algorithm
+
+=> Builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit.
+
+=> Problems where choosing locally optimal also leads to the global optimal solution are best fit for Greedy.
+
+=> GENERAL STRUCTURE OF A GREEDY ALGORITHM
+    ->  getOptimal(Item arr[], int n)
+        {
+            Initialize : result = 0
+            while(all items are not considered)
+            {
+                i = selectAnItem()
+                if(feasible(i))
+                    result = result+i
+            }
+            return result
+        }
+    -> Ex: Selecting a min no. of coins to add up to a given sum
+
+=> GREEDY APPROACH MAY NOT ALWAYS WORK
+    -> Ex 1:    coin[] = {18, 1, 10}
+                Greedy Solution = 3 (18+1+1)
+                Optimal Solution = 2 (10+10)
+                        
+    -> Ex 2:        B ------(2)----- E ------\(1)
+                   /                          \
+                  /(10)                        G
+                 /                            /
+                A ---(1)--- C ---(20)--- F --/(5)
+                 \                      /
+                  \---(2)--- D --(5)---/
+                
+                Longest Path from A to G (Greedy) = 13 (10+2+1 i.e., A->B->E->G)
+                Longest Path from A to G (Optimal) = 26 (1+20+5 i.e., A->C->F->G)
+
+
+
+
+=> Can be used to find close to optimal solutions to NP-hard problems (e.g., travelling salesman problem)
+
+=> APPLICATIONS
+    -> Activity Selection
+    -> Fractional Knapsack
+    -> Job Sequencing
+    -> Dijkstra's Algorithm
+    -> Prim's Algorithm
+    -> Kruskal's Algorithm
+    -> Huffman Coding
+
+

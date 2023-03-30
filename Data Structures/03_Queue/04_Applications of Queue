@@ -1,0 +1,25 @@
+=> APPLICATIONS OF QUEUE DATA STRUCTURE
+
+    [1] Handling cases involving single resource and multiple consumers (Resource Sharing).
+       Ex: Ticket System (multiple consumers i.e., customers, waiting in a queue to obtain a single resource i.e., ticket)
+
+    [2] Synchronisation between slow and fast devices 
+        -> Data sent/recived by fast device is stored in a queue from/through which the slow device can receive/send that data.
+        -> Sending data in such packets to a faster device makes sure that the faster device doesn't need to wait for entire duration slower device is sending that data.
+        -> Sending data in such packets to a slower device is needed as the slower device cannot process it as fast as the faster device will send it.
+
+    [3] In Operating Systems
+        -> CPU Scheduling - FCFS (same as FIFO/LILO in queue)
+        -> Semaphores (Processes sleeping in the queue due to unavailability of the resource wake up and execute as soon the required resource is made available to them)
+        -> Spooling (used in printers as printers can only execute one process at a time due to which the processes wait in the queue until resources become available)
+        -> Buffer for devices like keyboards (CPU is fast, keyboard is slow, basically process synchronization from [2])
+    
+    [4] In Computer Networks
+        -> Routers/Switches (Process Sychronization from [2])
+        -> Mail Servers (Process Sychronization from [2] & Resource Sharing from [1])
+
+    [5] Variations (Deque, Priority Queue, Double Ended Queue)
+
+
+
+# CONCLUSION : Resource Sharing and Process Synchronization
