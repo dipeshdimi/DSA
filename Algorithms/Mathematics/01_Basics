@@ -22,7 +22,7 @@
                 Median = {(N+1)/2}th value;
                 (N = number of terms)
             -> If the count of numbers is even: After sorting the sequence,
-                Median  =  Average of (N/2)th and {(N/2) + 1}th value;
+                Median = Average of (N/2)th and {(N/2)+1}th value;
                 (N = number of terms)
 
 
@@ -31,9 +31,8 @@
                     -> 2 and 3 are the only consecutive prime no.
 
 
-=> LCM :  -> Exactly two factors
-                    -> Every prime no. can be represented as 6n-1 or 6n+1 except 2 and 3, where n is a natural no.
-                    -> 2 and 3 are the only consecutive prime no.
+=> LCM :    -> Every prime no. can be represented as 6n-1 or 6n+1 except 2 and 3, where n is a natural no.
+            -> 2 and 3 are the only consecutive prime no.
 
 
 => LCM & HCF :  ->  LCM (a1, a2, ..., an) = Lowest no. divisible by each one of a1, a2, ..., an

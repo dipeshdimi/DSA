@@ -1,0 +1,45 @@
+=> Bitwise Operations -> Faster
+
+=> Integers are usually represented using 32 bits (value ranging from 0 to 2³²-1 i.e., 4,294,967,295). Thus, an unsigned in can range from 0 to 4,29,49,67,295 while an int can range from -2³¹ (-2,147,483,648) to 2³¹-1 (2,147,483,647). Since an int can be both positive as well as negative, we use the leading bit in its 32 bit representation to signify its sign. If the leading bit is 0, its a positive number and if it's 1, it's a negative number. To convert the binary representation to decimal form :-
+    -> Positive Number (Leading Bit Zero) : Just convert the rest of the 31 bits to the binary form and you'll achieve the decimal value.
+
+    -> Negative Number (Leading Bit One) : These are usually stored using 2s complement representation (2s complement of x in bits representation = 2ⁿ-x). For example,to store -6, we store the 2s complement of 6 in the memory.
+
+https://www.geeksforgeeks.org/representation-of-negative-binary-numbers/
+https://www.geeksforgeeks.org/1s-2s-complement-binary-number/
+
+
+=> Six Bitwise Operators :-
+
+    1) & (AND) : The & operator can be used to quickly check if a number is odd or even. The value of expression (x & 1) would be non-zero only if x is odd, otherwise the value would be zero.
+
+    2) | (OR)
+
+    3) ^ (XOR)
+        i. Most useful operator from technical interview perspective.
+        ii. x^0 = x
+        iii. x^x = 0
+        iv. x^y = y^X
+        c. x^(y^z) = (x^y)^z
+
+    4) << (Left Shift)
+        i. x<<y : Shift the bits in x (binary form) by y times towards the left.
+        ii. y trailing zeroes.
+        iii. Cannot be used on negative numbers.
+        iv. Equivalent of x = x*2ʸ, given y leading digits are 0.
+        v. Undefined on negative numbers as per C++ standard, so the result would be compiler dependent.
+        vi. Ex : 5<<2 = 20 (000...000101 -> 000...010100)
+                    [2 Leftmost bits (00) removed and two zeroes added at the right end (00)]
+
+    5) >> (Right Shift)
+        i. x>>y -> Shift the bits in x (binary form) by y times towards the right.
+        ii. y leading zeroes.
+        iii. Cannot be used on negative numbers.
+        iv. Equivalent of x = floor(x/2ʸ) irrespective of the value of x.
+        v. Undefined on negative numbers as per C++ standard, so the result would be compiler dependent.
+        vi. Ex : 9>>2 = 20 (000...0001001 -> 000...00010)
+                    [2 Rightmost bits (10) removed and two zeroes added at the left end (00)]
+
+    6) ~ (NOT)
+        i. Inverts all bits of it.
+        ii. Undefined on negative numbers as per C++ standard, so the result would be compiler dependent.

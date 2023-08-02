@@ -53,7 +53,8 @@ string inf_pre(string infix)
 			while ( !(st.empty()) && prec(infix[i]) <= prec(st.top()))
 			{
 				if( ((infix[i]=='+' || infix[i]=='-') && (st.top()=='+' || st.top()=='-')) || ((infix[i]=='*' || infix[i]=='/') && (st.top()=='*' || st.top()=='/')) )
-					break;
+                {cout<<"ncsdujzndcundf\n\n";
+					break;}
 				
 				prefix += st.top();
 				st.pop();
@@ -304,7 +305,7 @@ int main()
     => SPACE COMPLEXITY : O(n)
                         ______________________________________________________________________________________
                         | # Stack length -> No. of operators/left parenthesis -> Linear function of n -> O(n) |
-                        | # Output (Postfix Expression) -> n length -> O(n)                                   |
+                        | # Output (Prefix Expression) -> n length -> O(n)                                   |
                         |_____________________________________________________________________________________|
 */
     string infix;

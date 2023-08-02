@@ -381,7 +381,7 @@ int main()
                                 1) The key at root must be minimum among all keys present in the Binary Heap. The same property must be recursively true for all nodes in the Tree.
                                 2) Highest priority item assigned lowest value.
                                 3) Every node smaller than its descendant(s).
-                # Min Heap : [Different ways of saying the same thing :-]
+                # Max Heap : [Different ways of saying the same thing :-]
                                 1) The key at root must be maximum among all keys present in the Binary Heap. The same property must be recursively true for all nodes in the Tree.
                                 2) Highest priority item assigned highest value.
                                 3) Every node greater than its descendant(s).

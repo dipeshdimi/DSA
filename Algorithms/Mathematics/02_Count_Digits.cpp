@@ -34,7 +34,7 @@ int Count_Digit_Log(int n)
 
 int main()
 {
-    int n = 393821;
+    int n = 393821;     // n>0
     cout<<Count_Digit_Iterative(n)<<"\t";
     cout<<Count_Digit_Recursive(n)<<"\t";
     cout<<Count_Digit_Log(n)<<"\t";

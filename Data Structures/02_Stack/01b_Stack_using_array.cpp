@@ -10,6 +10,7 @@ struct stack_arr
     int Max_Size;
     int *arr;
 
+    // Constructor
     stack_arr(int inputSize)
     {
         Max_Size = inputSize;
@@ -117,7 +118,9 @@ int main()
 {
     // STACK : Linear data structure that follows either FILO or LIFO order in which the order is performed.
 
-    stack_arr s(100);    // Constructor, structure instance stored in statically allocated stack memory, we don't need the dot operator (.) or arrow operator (->) to access top, size or *arr as in any of the functions as they are all defined inside the structure itself.
+    stack_arr s(100);
+    // Structure instance stored in statically allocated stack memory.
+    // In this program, we have no need to use the dot operator (.) or arrow operator (->) to access top, size or *arr if the line(s) of code accessing them are all written within the structure itself.
         /* Other ways to use the struct stack_arr datatype (Using struct in the following declarations is optional everywhere here) :-
             (1)(2) stack_arr s; (1)
                     [C, directly use structure instance (stored in statically allocated stack memory) with the help of dot(.) operator]

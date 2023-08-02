@@ -153,7 +153,7 @@ int main()
             Ex: 24 ÷ 4(8÷4) = 3     [24 ÷ 4×(8÷4) = 12]
 
         2) O in BODMAS stands for 'Order', i.e., exponential powers should be calculated before divison and the rest the operations that follow it.
-            Ex: 3 x (2 + 4) + 5^2   [Brackets first (2 + 4 = 6), then the Orders (52 = 25), then any Division or Multiplication (3 x 6 (the answer to the brackets) = 18), and finally any Addition or Subtraction (18 + 25 = 43)]
+            Ex: 3 x (2 + 4) + 5^2   [Brackets first (2 + 4 = 6), then the Orders (5^2 = 25), then any Division or Multiplication (3 x 6 (the answer to the brackets) = 18), and finally any Addition or Subtraction (18 + 25 = 43)]
 
 
     => INFIX TO PREFIX/POSTFIX CONVERSION

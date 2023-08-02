@@ -52,8 +52,8 @@ string inf_post(string infix)
         {
             while (!st.empty() && precedence(infix[i]) <= precedence(st.top()))
             {
-                // In case of other operators (+, -, *, /), associativity is left to right and we are traversing the string from left to right, thus, the precedence of infix[i] will always be less than the precedence of st.top() => pop().
-                // In the case of '^' operator though, associativity is right to left, while we are still traversing from left to right, thus, the precedence of infix[i] will always be more than the precedence of st.top() => push().
+                // In case of other operators (+, -, *, /), associativity is left to right and we are traversing the string from left to right, thus, the precedence of infix[i] (right) will always be less than the precedence of st.top() (left) for equal precedence operators => pop().
+                // In the case of '^' operator though, associativity is right to left, while we are still traversing from left to right, thus, the precedence of infix[i] (right) will always be more than the precedence of st.top() (left) for equal precedence operators => push().
                 // NOTE: Associativity comes into play only when the precedence functions returns equal values.
                 if(infix[i] == '^' && st.top() == '^')
                     break;
@@ -83,7 +83,7 @@ int main()
         +,-     |  Left to Right        |
          (      |  Left to Right        |
         
-        NOTE: When '(' is encountered, we just push it into the stack without bothering about the precedence of st.top(). However, when an operator, is encountered, the precedence of '(' is taken into account.
+        NOTE: When '(' is encountered, we just push it into the stack without bothering about the precedence of st.top(). However, when an operator is encountered, the precedence of '(' is taken into account.
 
     Ex: 1) 5^1^3 = 5^(1^3) = 5             [Associativity -> Right to Left]
             {Postfix -> a^b^c = (a^(b^c)) = (a^(bc^)) = abc^^}

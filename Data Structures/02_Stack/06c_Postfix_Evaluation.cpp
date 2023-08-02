@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
 #include<stack>
+#include<typeinfo>
+#include<math.h>
 
 using namespace std;
 
@@ -42,7 +44,7 @@ int postEval(string infix)
                     st.push(op1 / op2);
                     break;
                 case '^':
-                    st.push(op1 ^ op2);
+                    st.push(pow(op1, op2));
                     break;
             }
         }

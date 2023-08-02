@@ -55,7 +55,7 @@ void pop(struct stack*s)
 
 void peek(struct stack*s, int position)
 {
-    if(s->top-position+1 < 0)
+    if(s->top-position+1 < 0 || position<1)
     {
         printf("Invalid position of the element demanded.\n");
         return;
