@@ -25,11 +25,16 @@ bool cycleDirected_DFS_Recur(vector <int> adj_list[], int src, bool visited[], b
         // If the graph is disconnected then get the DFS forest and check for a cycle in individual trees by checking back edges. To detect a back edge, keep track of vertices currently in the recursion stack of function for DFS traversal. If a vertex is reached that is already in the recursion stack then there is a cycle in the tree.
         // Note: A Back edge is an edge that is from a node to itself (self-loop) or one of its ancestors in the tree produced by DFS. Thus the edge that connects the current vertex to the vertex in the recursion stack is a back edge. Here, the back edge is from src to x.
         // C:\Programming\DAA\Data Structures\05_Graphs\07_Detect_Cycle_in_Directed_Graph.png
-        if(visited[x] && recur_stack[x])
+        
+        // Encounter with unvisited node while exploring src's neighbors -> DFS Recursion
+        if(!visited[x])
+            if(cycleDirected_DFS_Recur(adj_list, x, visited, recur_stack))
+                return true;
+        // Check for back edge
+        else if (recur_stack[x])
             return true;
-        // Going through yet unvisited elements
-        else if (cycleDirected_DFS_Recur(adj_list, x, visited, recur_stack))
-            return true;
+        
+        // recur_stack me koi node h mtlb definitely hm usko visit kr chuke h, however, ek visited node recur_stack me ho, ye zaroori nhi h, since we set recur_stack[src]=false, each time src's recursion call terminates. Oopr if else ladder me, agr unvisited node rhi, to fir to else if me ani hi nhi h (kyonki ek unvisited node vaise bhi recur_stack me nhi hogi) aur agr visited rhi, then we will check if that visited node (x) is part of the same recursion stack that we are currently going through (recur_stack[x]). Purane kisi stack ka hua, jiske liye hm already recur_stack[x]=false set kr chuke h, that does not indicate a cycle. Current recursion stack ka hua, then it means a cycle.
     }
 
     // cycleDirected_DFSrecur(src) is about to terminate, thus, src would no longer be in the recursion stack
@@ -84,6 +89,27 @@ int main()
 
     cout<<cycleDirected_DFS(adj_list_dir_cyclic, 5)<<"\n";
     cout<<cycleDirected_DFS(adj_list_dir_acyclic, 5)<<"\n";
+
+    // WHY DIFFERENT ALGOS FOR CYCLE DETECTION IN DIRECTED AND UNDIRECTED GRAPHS?
+    /*
+          1
+         / \
+        2   3   => CYCLIC [Two paths to a node implies cycle]
+         \ /
+          4
+          1
+         ↙ ↘
+        2   3   => ACYCLIC [Two paths to a node doesn't imply cycle]
+         ↘ ↗
+          4
+
+        Even though 2 is already visited by the time we reach 4 and 2 is not 4's parent either, they do not form a cycle i.e., we need to make sure that the back edge is from the current node to a node in recursion stack. If this was an undirected graph however, we would have classified it as cyclic.
+            1
+           ↙ ↘
+          2   3
+           ↖ ↙ ↘
+            4   5
+    */
 
     return 0;
 }

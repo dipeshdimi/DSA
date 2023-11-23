@@ -33,8 +33,23 @@ void Topological_Sorting_DFS(vector <int> adj_list[], int V)
     {
         if(!visited[i])
             Topological_Sorting_DFS_Recur(adj_list, i, visited, s);
-            // PTA NHI YE s ka &s kaise ho gya, stack STL pdhkr ana
-            // NONSENSE/WRONG EXPLANATION -> Entire stack cannot be passed as a function argument, thus, when we write the stack name, it means address/pointer to the beginning of the stack in memory (heap), just like in case of array(arr => arr[] or *arr or &arr).
+            // We are passing the object 's' by reference (here '&' does not mean address, but rather it represents reference).
+            /*
+                => When a variable is declared as a reference, it becomes an alternative name for an existing variable. A variable can be declared as a reference by putting ‘&’ in the declaration. 
+                => Syntax: data_type &ref = variable;
+                => If a function receives a reference to a variable, it can modify the value of the variable.
+                => Imagine a function that has to receive a large object. If we pass it without reference, a new copy of it is created which causes a waste of CPU time and memory. We can use references to avoid this.
+                =>  int x = 10;
+                    
+                    int& ref = x;   // ref is a reference to x.
+                
+                    ref = 20;       // Value of x is now changed to 20
+                    cout << "x = " << x << '\n';
+                
+                    x = 30;     // Value of x is now changed to 30
+                    cout << "ref = " << ref << '\n';
+                => In the above argument passing, we are essentially doing, stack <int> &s = s;
+            */
     }
 
     // Printing stack elements in topological order starting with one of the independent nodes.

@@ -50,7 +50,9 @@ void Kahns_Topo_BFS(vector <int> adj_list[], int V, int indegree[])
 int main()
 {
     // Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge uv, vertex u comes before v in the ordering.
-    // Topological Sorting for a graph is not possible if the graph is not a DAG (CYCLE => Every vertex in the cycle is dependent on another vertex, thus, we won't find any vertex in the cycle with indegree=0).
+    // Topological Sorting for a graph is not possible if the graph is not a DAG :-
+        // CYCLE: Every vertex in the cycle is dependent on another vertex, thus, we won't find any vertex in the cycle with indegree=0.
+        // UNDIRECTED: Given an edge {u,v} = {v,u}, it’s ambiguous which node would have to come first in the ordering, since neither one occupied a privileged position over the other.
     /* 
         1)    5   4             => 4 1 5 2 3 0      => 4 5 1 2 3 0      => 4 5 2 1 3 0
              ↙ ↘↙ ↘            => 4 5 2 3 0 1      => 4 5 2 3 1 0      => 5 2 3 4 0 1
@@ -82,6 +84,9 @@ int main()
                                 cout<<q.front()
                                 q.pop()
                             }
+    */
+    /*
+        The above algorithm works and gives us one of the possible topological sorts because, before adding a node to the queue, we wait for its indegree to become zero. We reduce the indegree of a node (x) whenever we process any of its  parent node (q.front()). Thus, the indegree of any node becomes zero only after we have processed all of its parent nodes i.e., for an edge u->v, parent node 'u' would always come before the child node 'v'. As for the nodes added to the queue in the beginning (indegree[i]=0 from the get-go), they don't have a parent, so, they will naturally come in the beginning of the topological sort, in any order among themselves.
     */
 
     vector <int> adj_list_dir[6];

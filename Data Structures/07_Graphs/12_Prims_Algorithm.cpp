@@ -35,7 +35,7 @@ int Min_Key_Index(bool MST_Set[], int key[])
 
  void Prims_Algo(int adj_mat[][V])
 {   
-    // The idea of using key values is to pick the minimum weight edge from cut. The key value for a 'already in MST' vertex would indicate the weight of the edge that connected it to the 'already in MST' subgraph AND the key value for a 'not yet in MST' vertex indicates the minimum weight edge connecting it to the 'already in MST' subgraph (this value is according to only the graph explored up until that point in the algorithm, it would change if we find a lower weight edge connecting the 'already in the MST' subgraph with that vertex).
+    // The idea of using key values is to pick the minimum weight edge from the cut. The key value for a 'already in MST' vertex would indicate the weight of the edge that connected it to the 'already in MST' subgraph AND the key value for a 'not yet in MST' vertex indicates the minimum weight edge connecting it to the 'already in MST' subgraph (this value is according to only the graph explored up until that point in the algorithm, it would change if we find a lower weight edge connecting the 'already in the MST' subgraph with that vertex).
     int key[V];
     bool MST_Set[V];        // false for 'not yet in MST' vertices and true for 'already in MST' vertices
     for(int i=0; i<V; i++)
@@ -59,9 +59,10 @@ int Min_Key_Index(bool MST_Set[], int key[])
         // Update key[] & parent[] for the adjacent vertices of the picked vertex (min weight vertex). Consider only those vertices which are not yet included in MST.
         for(int v=0; v<V; v++)
         {
-            // adj_mat[minWeightVertex][v] is non zero only for adjacent vertices of m 
+            // adj_mat[minWeightVertex][v] is non zero only for adjacent vertices of minWeighVertex
             // MST_Set[v] is false for vertices not yet included in MST 
             // Update the key only if adj_mat[minWeightVertex][v] is smaller than key[v] 
+            // Basically, since we just added minWeightEdge to the MST, we opened another vertex to connect the 'not yet in MST' subgraph to the 'already in MST' subgraph, and since key[x] array represents, the minimum weight edge that connects node 'x' from the 'not yet in MST' subgraph to the 'already in MST' subgraph (OR the edge that connected node 'x' that is already in the MST to it, however, we do not need to bother with that case since we have already calculated the min edge for it, and it won't change as we further explore the graph, that's why we have included MST_Set[v]==false here), we would need to update it in case the newly added minWeightVertex offers an even lower weighted edge to connect to x.
             if(adj_mat[minWeightVertex][v] != 0 && MST_Set[v]==false && key[v] > adj_mat[minWeightVertex][v])
             {
                 key[v] = adj_mat[minWeightVertex][v];

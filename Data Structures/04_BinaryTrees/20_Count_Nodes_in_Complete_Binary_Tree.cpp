@@ -26,7 +26,7 @@ int countNaive(node *root)
 int countEfficient(node *root)
 {
     // NOTE 1: There is no need for the base case if (root==NULL) return 0;, since that is also handled by pow(2,0)-1 = 0.
-    // NOTE 2: We can't just use the regular height function here, coz it would give the same lh and rh value even when the last node is a left node (instead of a right node) in which case, the function would return ppow(2,lh+1)-1, even though the current subtree is not a complete binary tree [we are using lh+1 (could also be used since this statement is executed when lh==rh) since when calculating height(root->left) or height(root->right), root itself is not counted]. Besides, the  time complexity would become O(n*log₂n), which would be even worse than the naive method.
+    // NOTE 2: We can't just use the regular height function here, coz it would give the same lh and rh value even when the last node is a left node (instead of a right node) in which case, the function would return pow(2,lh)-1, even though the current subtree is not a complete binary tree [we are using lh (could also be used since this statement is executed when lh==rh) since when calculating height(root->left) or height(root->right), root itself is not counted]. Besides, the  time complexity would become O(n*log₂n), which would be even worse than the naive method.
 
     // Here, lh & rh may not necessarily be the height of the left and right subtree (including the root) when the given tree is not complete, but our condition for using the pow(2,lh)-1 is for the tree to be complete which is possible only when lh and rh are indeed the same and represent the height of the tree. We calculate lh and rh just to check if the current tree is a complete binary tree or not.
     int lh=0, rh=0;
@@ -50,12 +50,12 @@ int countEfficient(node *root)
 
     // When a subtree is completely filled even at the last level.
     if(lh == rh)
-        return pow(2,lh+1)-1;
+        return pow(2,lh)-1;
     // When a subtree is not completely filled at the last level, we just revert back to the naive method.
     else
         return 1 + countEfficient(root->left) + countEfficient(root->right);
 /* III. 
-    => If pow(2,lh+1)-1 is returned, time complexity would be Θ(1).
+    => If pow(2,lh)-1 is returned, time complexity would be Θ(1).
 
     => In case lh!=rh, two function calls are going to be executed, i.e., countEfficient(root->left) & countEfficient(root->right). Now, there can be two cases :-
 

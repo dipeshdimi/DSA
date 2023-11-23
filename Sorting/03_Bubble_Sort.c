@@ -127,14 +127,14 @@ int main()
     int n = sizeof(arr)/sizeof(arr[0]);
     // Array arr in main function is not the same as in another function. The array decays to a pointer when passed. So sizeof only works to find the length of the array if you apply it to the original array. Thus, the length of the array needs to be passed as a separate argument to the function. In another function declaration, int arr[] is same as int*arr and arr is a pointer, not an array. Therefore, sizeof(arr) = 4 (i.e., the size of pointer int*arr).
     
-    // bubble_unoptimised(arr, n);
-    // printArray(arr, n);
+    bubble_unoptimised(arr, n);
+    printArray(arr, n);
 
     // bubble_optimised(arr, n);
     // printArray(arr, n);
 
-    bubble_recursion(arr, n);
-    printArray(arr, n);
+    // bubble_recursion(arr, n);
+    // printArray(arr, n);
 
     return 0;
 }

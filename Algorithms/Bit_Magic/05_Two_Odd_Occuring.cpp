@@ -28,6 +28,7 @@ int main()
                 //          setBit      =   000...00100
                 // Now, all the bits on the righ of the first set bit would be zero for both x and ~(x-1) and all the bits on the left of the first set bit would be opposite of each other in x and ~(x-1), thus x & ~(x-1) would have all bits as 0 except the bit at the position of the first set bit in x, which would be 1.
 
+        /* Take any set bit from from twoOddXor. For this bit to be set i.e., 1, res1 and res2 should have opposite bits at that position. Thus, we classify our array into two groups - numbers in which bit is 1 at the chosen set bit location and the other in which it is 0. res1 and res2 would lie in separate groups and thus, we can calculate XOR for the two groups separately and res1 and res2 would be obtained. */
 
         /* The given array can now be classified into two categories - one with bit at position pos (from right) set and another in which it is not set. In other words, one in which setBit and arr[i] have a common bit and another one in which they don't. This way, we know that one of the odd occuring element would be in the first category and the other in the second category. We calculate the combined XOR of elements in these two categories separately and the result would be our answer as our problem has reduced to two separate one odd occuring problems. */
             // int res1=0, res2=0;

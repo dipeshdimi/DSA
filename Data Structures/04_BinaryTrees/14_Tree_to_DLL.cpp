@@ -18,12 +18,10 @@ struct node{
 node *treeDLL(node *root, node**prev)
 {
     if(root == NULL)
-        return NULL;
+        return root;    // returning NULL
 
-    // head is returned (= NULL), i.e., this line terminates (treeDLL() function terminates), for the first time when root is the leftmost node of the binary tree, which would be the first node in the inorder traversal of the tree and thus the first node/head of the doubly linked list we'll form.
+    // head is returned (=NULL), i.e., this line terminates (treeDLL() function terminates), for the first time when root is the leftmost node of the binary tree, which would be the first node in the inorder traversal of the tree and thus the first node/head of the doubly linked list we'll form.
     node *head = treeDLL(root->left, prev);
-    // if(head == NULL && root->data == 0)
-    //     cout<<root->data<<"\n";
 
     // The first (and only, since *prev would be changed from NULL after this if-else ladder) time this if statement executes would be when treeDLL() funtcion terminates for the first time. Since on its first termination, we know, root is the leftmost node of the tree, which we would want to be returned as the head of the doubly linked list, we would set head = NULL.
     if(*prev == NULL)
@@ -44,6 +42,19 @@ node *treeDLL(node *root, node**prev)
     treeDLL(root->right, prev);
 
     // Once the head=treeDLL(root->left); line gives a result, head=root; line would be executed (only once throughout the entire execution) and head would already have the value we want to return. Since apart from these, there is no other line dealing with head, the same head value would keep returning up until it reaches the root node of the tree. By then, the left subtree would have been processed and right subtree would be left, but since whenever we call treeDLL(root->right), we don't store the value it returns, there would be no change in head. Thus, values returned by a right child don't matter and the left children just return the same value in a chain. Hence, we get our desired head pointer, which we return.
+    // Even though there would be a chain of the first inorder element returned after the first time it terminates, the first termination would still return NULL from the if(root==NULL) statement. Note that only the leftmost elements return this value, not the entire subtree.
+    /*
+                    a
+                /       \
+               b         c
+             /   \     /   \
+            d     e   g     h
+                 /
+                f 
+            
+            Chain of return : d->b->a       [node *head = treeDLL(root->left, prev);]
+            No other element would be part of this head returning chain. Even though f & g would return a head value to their parents, since their parents are right elements, that value won't carried further.
+    */
     return head;
 }
 

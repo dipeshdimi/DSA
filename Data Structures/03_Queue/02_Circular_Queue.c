@@ -18,6 +18,7 @@ void enqueue(struct queue*q, int value)
         q->rear = (q->rear+1)%q->size;
         q->arr[q->rear] = value;
         // First element arr[1] and not arr[0]
+        // We leave an empty slot since that helps us distinguish between a full and an empty queue (front and rear would be equal, in both empty as well as full queue cases). That empty slot could either be q->front or q->rear. Here, it's q->front.
     }
 }
 

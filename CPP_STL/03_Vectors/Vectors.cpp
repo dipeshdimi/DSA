@@ -58,6 +58,12 @@ int main()
            vector <int> v7(arr, arr+sizeof(arr)/sizeof(arr[0]));
 
 
+// VECTOR EQUALITY
+    vector <int> eq1 = {3,5,7,98,1};
+    vector <int> eq2 = {3,98,7,5,1};
+    vector <int> eq3 = {3,5,7,98,1};
+    cout<<(eq1==eq2)<<"  "<<(eq1==eq3)<<"\n\n";
+
 // VECTOR TRAVERSAL
     /* METHOD 1: */ for (int i = 0; i < v3.size(); i++)
                         cout<<v3[i]<<"  ";
@@ -261,7 +267,6 @@ int main()
         for(int x:v3)
             cout<<x<<"  ";
         cout<<"\n\n";
-
     
     return 0;
 }

@@ -96,7 +96,7 @@ int main()
     int pre[] = {-20,-10,10,50,20,0,30,60,80,40,70};
 
 // The idea is to start forming the tree in the order of preorder array. One by one, we go through the preorder array, for each element, form a root node, find that value in the inorder array so that the elements left of it would comprise the left subtree and the elements right of it would comprise the right subtree. Then, we keep repeating this process for each left & right subtree obtained.
-// The use of preorder and inorder array as described above is due to the sequence of nodes in them being, ROOT->LEFT->RIGHT & LEFT->ROOT->RIGHT respectively.
+// The use of preorder and inorder array as described above is due to the sequence of nodes in them being, ROOT->LEFT->RIGHT & LEFT->ROOT->RIGHT respectively. Due to this, as we travel through the preorder array, we would keep getting the corresponding root element of the current subtree. That's why, the current preorder array element is guaranteed to be within the current in_start to in_end range of the inorder array.
 /*
     => TREE{10,50,-10,20,-20,30,80,60,0,40,70}: [in_start=0 to in_end=10]
         root = -20                                          [first preorder element]

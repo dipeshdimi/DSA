@@ -12,11 +12,14 @@ struct point{
 bool myComp(point p1, point p2)
 {
     /* Pehle wala chhota h ko true return kiya  =>  Pehle wale ko age place krna h          =>  Asc
-       Pehle wala bda h ko true return kiya     =>  Pehle wale ko fir bhi  age place krna h =>  Desc */
+       Pehle wala bda h ko true return kiya     =>  Pehle wale ko fir bhi age place krna h =>  Desc */
+    
     return (p1.x < p2.x);       // Sorting in ascending order of x-coordinate value
     // return (p1.x > p2.x);       // Sorting in descending order of x-coordinate value
     // return (p1.y < p2.y);       // Sorting in ascending order of y-coordinate value
     // return (p1.y > p2.y);       // Sorting in descending order of y-coordinate value
+
+    // Between the first and (then) second point, just use the sign ('>' or '<') as per which you want the sorting to happen i.e., '<' for ascending (a < b < c <...)  and '>' for descending (a > b > c >...)
 }
 
 void printArray(int arr[], int n)

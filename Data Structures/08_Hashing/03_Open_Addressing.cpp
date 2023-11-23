@@ -491,7 +491,7 @@ int main()
     else
         cout<<"Found : "<<*s.find(71)<<"\n";
     
-    // count() just returns 0 or 1 indicating if the element is found or not
+    // count() just returns 0 or 1 indicating if the element is found or not (returns 1 for present as the map only contains a unique key).
     if(s.count(70))
         cout<<"Found\n";
     else
@@ -534,7 +534,7 @@ int main()
     else
         cout<<"Found : "<<m.find("Pawan")->second<<"\n";
     
-    // count() just returns 0 or 1 indicating if the element is found or not
+    // count() just returns 0 or 1 indicating if the element is found or not (returns 1 for present as the map only contains a unique key).
     if(m.count("Ayan"))
         cout<<"Found\n";
     else
@@ -542,7 +542,7 @@ int main()
 
     cout<<m.size()<<"\n";
     m.erase("Aman");                    // Erase by value
-    m.erase(m.find("Archit"));            // Erase by iterator
+    m.erase(m.find("Archit"));          // Erase by iterator
     cout<<m.size()<<"\n";
     m.erase(m.begin(), m.end());    // Erase in range
     cout<<m.size()<<"\n";

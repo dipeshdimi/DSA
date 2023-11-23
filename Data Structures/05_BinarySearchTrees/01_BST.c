@@ -22,15 +22,17 @@ struct node* createNode(int data)
 int main()
 {
 /*
-    # DEFINITION
-        BST is the type of binary tree in which :-
-        1) Data stored by each left child node is smaller than the data stored by its respective parent node.
-        1) Data stored by each right child node is greater than the data stored by its respective parent node.
+    # BST is the type of binary tree in which :-
+        1. The left subtree of a node contains only nodes with keys lesser than the node’s key.
+        2. The right subtree of a node contains only nodes with keys greater than the node’s key (e.g., 15's left child should be less than 15, but greater than any of its other ancestors i.e., >9 & >11).
+        3. The left and right subtree each must also be a binary search tree.
+        Ex: [7's right child should be >7, >4 & <9], [15's right child should be <15,>11,>9], etc.
 
     # PROPERTIES
         1) Each subtree of a BST is a BST too.
         2) There can't be any duplicates in a BST.
         3) Inorder traversal of a BST gives an ascending sorted array.
+        4) Most of the operations in a BST are O(log₂n), which is why we like to keep the height of a BST (h=log₂n) to a minimum. This is where the concept of self-balancing BSTs comes in.
 
     # Example
             9

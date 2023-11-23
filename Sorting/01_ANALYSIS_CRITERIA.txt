@@ -43,8 +43,8 @@ IV. *** Location of Input Data in Memory ***
     # External Sorting Algorithm -> All the input data is stored outside the main memory (like on disk) and only loaded into RAM in small chunks. External sorting is usually applied in cases when data can't fit into memory entirely.
 
 
-V. *** Adaptivity ***
+V. *** Adaptability ***
     Already sorted data takes less time to process.
 
 
-VI. *** Recusive / Non-Recursive (Iterative) ***
+VI. *** Recursive / Non-Recursive (Iterative) ***
