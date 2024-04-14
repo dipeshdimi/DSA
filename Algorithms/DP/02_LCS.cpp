@@ -9,7 +9,7 @@ int lcsRec(string s1, string s2, int m, int n)
     if(m==0 || n==0)
         return 0;
     
-    // Character match => Ignore that character from both strings after adding its count (+1), and just find the lcs for the rest fo the substrings
+    // Character match => Ignore that character from both strings after adding its count (+1), and just find the lcs for the rest of the substrings
     if(s1[m-1] == s2[n-1])
         return 1 + lcsRec(s1,s2,m-1,n-1);
     // Two options now - ignore the character from s1 and find lcs for s2 & rest of s1 OR ignore the character from s2 and find the lcs for s1 and rest of s2. We do both, at each step and choose the max output.
@@ -19,6 +19,7 @@ int lcsRec(string s1, string s2, int m, int n)
     // TIME COMPLEXITY: 2ᵐᵃˣ⁽ᵐ,ⁿ⁾   [Max height of binary tree would be the length of the longer string]
 }
 
+// In the following two solutions, mem[i][j]/tab[i][j] represent the number of common characters in order if s1 and s2 were of length i and j.
 int lcsMem(string s1, string s2, int m, int n, vector <vector<int>> &mem)
 {
     if(mem[m][n] == -1)
@@ -39,7 +40,7 @@ int lcsMem(string s1, string s2, int m, int n, vector <vector<int>> &mem)
                                         -> (BYXJB,BAJP) ...
                         -> (ABYXJB,BAJP)
                                         -> (ABYXJB,AJP) ...
-        -> (ABYXJB,BAJP)
+        -> (ABYXJB,TBAJP)
                                         -> (BYXJB,BAJP) ...
                         -> (BYXJB,TBAJP)
                                         -> (YXJB,TBAJP) ...
@@ -49,6 +50,7 @@ int lcsMem(string s1, string s2, int m, int n, vector <vector<int>> &mem)
 
 int lcsTab(string s1, string s2, int m, int n, vector <vector<int>> &tab)
 {
+    // Replacement of, if(m==0 || n==0)  return 0;
     for(int i=0; i<m+1; i++)
         tab[i][0] = 0;
     for(int j=0; j<n+1; j++)
@@ -71,7 +73,7 @@ int lcsTab(string s1, string s2, int m, int n, vector <vector<int>> &tab)
 
 int main()
 {
-    // Longest Common Substring [LCS]: String of common characters in same order of occurence.
+    // Longest Common Subsequence [LCS]: String of common characters in same order of occurence.
     // Ex: s1 = "ABYXJB", s2 = "TBAJP" => lcs = BJ
 
     string s1 = "ABYXJB", s2 = "TBAJP";
